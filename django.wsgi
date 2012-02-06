@@ -8,5 +8,5 @@ sys.path.insert(0, "/home/deploy/apps/simpleblog/virtualenv/lib/python2.6/site-p
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'django_simple_blog.settings'
 
-import django.core.handlers.wsgi
-application = django.core.handlers.wsgi.WSGIHandler()
+from django.core.handlers.wsgi import WSGIHandler
+application = WSGIHandler()
