@@ -3,12 +3,11 @@ from fabric.api import env
 CONFIG = {}
 CONFIG['env'] = None
 
-CONFIG['app-name'] = 'simpleblog'
-CONFIG['app-root-folder'] = 'django_simple_blog'
+CONFIG['app_name'] = 'simpleblog'
+CONFIG['app_root_folder'] = 'django_simple_blog'
 
 CONFIG['vcs'] = 'git'
-CONFIG['git-repo'] = 'git://github.com/mattmillr/django_simple_blog.git'
-CONFIG['repo-name'] = 'django_simple_blog'
+CONFIG['git_repo'] = 'git://github.com/mattmillr/django_simple_blog.git'
 
 def bksw1():
     global CONFIG
