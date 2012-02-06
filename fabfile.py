@@ -65,7 +65,8 @@ def update_virtualenv():
     run('pip install -E /home/deploy/apps/%(app_name)s/virtualenv -r /home/deploy/apps/%(app_name)s/releases/%(dir_name)s/%(app_root_folder)s/requirements.txt' % CONFIG)
     
 def update_symlink():
-    run('ln -fs /home/deploy/apps/%(app_name)s/releases/%(dir_name)s /home/deploy/apps/%(app_name)s/current' % CONFIG)
+    run('rm -f /home/deploy/apps/%(app_name)s/current' % CONFIG)
+    run('ln -s /home/deploy/apps/%(app_name)s/releases/%(dir_name)s /home/deploy/apps/%(app_name)s/current' % CONFIG)
     
 def config_apache():
     sudo('cp /home/deploy/apps/%(app_name)s/repo/%(app_root_folder)s/conf/site_apache.conf /etc/apache2/sites-available/%(app_name)s.conf' % CONFIG)
