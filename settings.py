@@ -1,4 +1,4 @@
-# Django settings for django_hello_server project.
+# Django settings for django_simple_blog project.
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -100,10 +100,10 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'django_hello_server.urls'
+ROOT_URLCONF = 'django_simple_blog.urls'
 
 TEMPLATE_DIRS = (
-    '/home/deploy/apps/django_hello_server/simple_blog/templates'
+    '/home/deploy/apps/django_simple_blog/simple_blog/templates'
 )
 
 INSTALLED_APPS = (
