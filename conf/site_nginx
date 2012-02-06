@@ -1,0 +1,42 @@
+server {
+	listen   80 default;
+	server_name bksw.mattm.us;
+
+	access_log  /var/log/nginx/localhost.access.log;
+
+	location /static_admin/ {
+		alias /home/apps/simpleblog/virtualenv/lib/python2.6/site-packages/django/contrib/admin/media/;
+	} 
+
+	location /static/ {
+		alias /home/apps/simpleblog/current/django_simple_blog/;
+		expires max;
+	}
+	
+  location /favicon.ico {
+    alias /home/apps/simpleblog/current/django_simple_blog/files/img/favicon.ico;
+  }
+  
+  location /robots.txt {
+    alias /home/apps/simpleblog/current/django_simple_blog/files/robots.txt;
+  }
+  
+	location / {
+		#access_log	off;
+		proxy_pass	http://127.0.0.1:8080;
+		proxy_cache	one;
+		proxy_cache_valid  200 302  360m;
+		proxy_cache_valid  404 1m;
+		proxy_set_header X-REAL-IP $remote_addr;
+		proxy_set_header X-FORWARDED-FOR $proxy_add_x_forwarded_for;
+		proxy_set_header Host $host;
+		proxy_pass_header Set-Cookie;
+	}
+
+	# redirect server error pages to the static page /50x.html
+	error_page   500 502 503 504  /50x.html;
+	location = /50x.html {
+		root   /var/www/nginx-default;
+	}
+
+}
