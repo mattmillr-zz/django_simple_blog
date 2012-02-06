@@ -70,7 +70,7 @@ def update_symlink():
 def config_apache():
     sudo('cp /home/deploy/apps/%(app_name)s/repo/%(app_root_folder)s/conf/site_apache.conf /etc/apache2/sites-available/%(app_name)s.conf' % CONFIG)
     sudo('ln -fs /etc/apache2/sites-available/%(app_name)s.conf /etc/apache2/sites-enabled/%(app_name)s.conf' % CONFIG)
-    sudo('/etc/init.d/apache2 reload')
+    sudo('/etc/init.d/apache2 restart')
 
 def config_nginx():
     sudo('cp /home/deploy/apps/%(app_name)s/repo/%(app_root_folder)s/conf/site_nginx.conf /etc/nginx/sites-available/%(app_name)s.conf' % CONFIG)
